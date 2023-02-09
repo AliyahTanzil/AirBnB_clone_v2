@@ -13,6 +13,7 @@ def index():
         return 'Hello HBNB!'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
@@ -26,16 +27,21 @@ def cisfun(text):
     return 'C ' + text.replace('_', ' ')
 
 =======
+=======
+
+>>>>>>> fc48d567c27daf5a4d809bfbdc320f56bcc64b93
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
         """returns HBNB"""
         return 'HBNB'
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def cisfun(text):
         """display “C ” followed by the value of the text variable"""
         return 'C ' + text.replace('_', ' ')
 >>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
+
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
