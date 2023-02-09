@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <center> <h1>HBNB - The Console</h1> </center>
 
 This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
@@ -141,3 +142,34 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 (hbnb) ["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'name': 'Fred the Frog', 'age': 9, 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
 <br>
+=======
+## 0x00. AirBnB clone - The console
+
+#### Purpose
+The purpose of this group project is to recreate the AirBnB site, from the back-end data management to the front-end user interface.
+
+The project is currently in its first phase, where we are creating a command line interpretor to access objects that will store user data. Users can use the console to create objects, update object attributes, remove objects, list all objects, and store and read data from a .json file.
+
+In order to begin the console, you can run either `python3 console.py` or `./console.py` in the command line.
+
+Classes that are currently supported include BaseModel, User, City, State, Amenity, Review, and Place.
+
+The console currently supports the following commands:
+
++ **create** \<class name>\, which will create an object of the class declared by user;
++ **show** \<class name> \<id>\, which will display the object information if it exists;
++ **destroy** \<class name> \<id>\, which will delete the object if it exists;
++ **all** \<class name>\, where the class name input is optional and the console will display all instances, or all instances of a specified object;
++ **update** \<class name> \<id> \<attribute name> \<attribute value>, whilch will update an instance attribute of a previously declared object.
+
+
+Additionally, the console also supports the following command formats:
+
++ **\<class name>\.all()**, which will display all instances of the specified class;
++ **\<class name>\.count()**, whilch will display the number of instances of the specified class;
++ **\<class name>\.show(\<id>\)**, whilch will display the instance with correct id and class;
++ **\<class name>\.destroy(\<id>\)**, which will delete the instance with correct id and class;
++ **\<class name>\.update(\<id>\, \<attribute name>\, \<attribute value>\)**, which will update an instance of the given class and id with the new attribute;
++ **\<class name>\.update(\<id>\, \<dictionary representation>\)**, which will update an instance of the given class and id with a dictionary of key value pairs that will be new attributes for the objects.
+
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d

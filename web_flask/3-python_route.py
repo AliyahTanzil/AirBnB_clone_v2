@@ -12,6 +12,7 @@ def index():
         """returns Hello HBNB!"""
         return 'Hello HBNB!'
 
+<<<<<<< HEAD
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
@@ -33,3 +34,19 @@ def pythoniscool(text='is cool'):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000')
+=======
+@app.route('/c/<text>', strict_slashes=False)
+def cisfun(text):
+    """display "C" followed by the value of the text variable"""
+    return 'C ' + text.replace('_', ' ')
+
+@app.route('/python', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def ppythoniscool(text='is cool'):
+    """display "Python", follwed by the value of the text variable"""
+    return 'Python' + text.replace('_', ' ')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', post='5000')
+
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
