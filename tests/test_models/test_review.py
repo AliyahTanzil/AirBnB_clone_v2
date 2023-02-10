@@ -2,6 +2,15 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.review import Review
+<<<<<<< HEAD
+
+
+class test_review(test_basemodel):
+    """ """
+
+    def __init__(self, *args, **kwargs):
+        """ """
+=======
 import os
 
 
@@ -10,11 +19,27 @@ class test_review(test_basemodel):
 
     def __init__(self, *args, **kwargs):
         """ review class init"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         super().__init__(*args, **kwargs)
         self.name = "Review"
         self.value = Review
 
     def test_place_id(self):
+<<<<<<< HEAD
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.place_id), str)
+
+    def test_user_id(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.user_id), str)
+
+    def test_text(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.text), str)
+=======
         """ testing review place_id attr"""
         new = self.value()
         self.assertEqual(type(new.place_id), str if
@@ -34,3 +59,4 @@ class test_review(test_basemodel):
         self.assertEqual(type(new.text), str if
                          os.getenv('HBNB_TYPE_STORAGE') != 'db' else
                          type(None))
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d

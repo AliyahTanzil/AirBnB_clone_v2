@@ -5,8 +5,12 @@ from models.base_model import BaseModel
 from models import storage
 import os
 
+<<<<<<< HEAD
+
+=======
 @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db',
                  'fileStorage test not supported')
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
 class test_fileStorage(unittest.TestCase):
     """ Class to test the file storage method """
 
@@ -22,7 +26,11 @@ class test_fileStorage(unittest.TestCase):
         """ Remove storage file at end of tests """
         try:
             os.remove('file.json')
+<<<<<<< HEAD
+        except:
+=======
         except Exception:
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
             pass
 
     def test_obj_list_empty(self):
@@ -32,7 +40,10 @@ class test_fileStorage(unittest.TestCase):
     def test_new(self):
         """ New object is correctly added to __objects """
         new = BaseModel()
+<<<<<<< HEAD
+=======
         new.save()
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         for obj in storage.all().values():
             temp = obj
         self.assertTrue(temp is obj)
@@ -65,9 +76,14 @@ class test_fileStorage(unittest.TestCase):
     def test_reload(self):
         """ Storage file is successfully loaded to __objects """
         new = BaseModel()
+<<<<<<< HEAD
+        storage.save()
+        storage.reload()
+=======
         new.save()
         storage.reload()
         loaded = None
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         for obj in storage.all().values():
             loaded = obj
         self.assertEqual(new.to_dict()['id'], loaded.to_dict()['id'])
@@ -100,7 +116,10 @@ class test_fileStorage(unittest.TestCase):
     def test_key_format(self):
         """ Key is properly formatted """
         new = BaseModel()
+<<<<<<< HEAD
+=======
         new.save()
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         _id = new.to_dict()['id']
         for key in storage.all().keys():
             temp = key
@@ -109,4 +128,8 @@ class test_fileStorage(unittest.TestCase):
     def test_storage_var_created(self):
         """ FileStorage object storage created """
         from models.engine.file_storage import FileStorage
+<<<<<<< HEAD
+        print(type(storage))
+=======
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         self.assertEqual(type(storage), FileStorage)

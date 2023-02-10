@@ -1,12 +1,26 @@
 #!/usr/bin/python3
 """ """
+<<<<<<< HEAD
+from models.base_model import BaseModel
+import unittest
+import datetime
+=======
 from models.base_model import BaseModel, Base
 from datetime import datetime
 import unittest
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
 from uuid import UUID
 import json
 import os
 
+<<<<<<< HEAD
+
+class test_basemodel(unittest.TestCase):
+    """ """
+
+    def __init__(self, *args, **kwargs):
+        """ """
+=======
 @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db',
                  'basemodel test not supported')
 class test_basemodel(unittest.TestCase):
@@ -14,11 +28,25 @@ class test_basemodel(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
         """ init the test class of basemodel"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         super().__init__(*args, **kwargs)
         self.name = 'BaseModel'
         self.value = BaseModel
 
     def setUp(self):
+<<<<<<< HEAD
+        """ """
+        pass
+
+    def tearDown(self):
+        try:
+            os.remove('file.json')
+        except:
+            pass
+
+    def test_default(self):
+        """ """
+=======
         """ the set up method of the test class"""
         pass
 
@@ -40,18 +68,27 @@ class test_basemodel(unittest.TestCase):
 
     def test_default(self):
         """ default testing of basemodel"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         i = self.value()
         self.assertEqual(type(i), self.value)
 
     def test_kwargs(self):
+<<<<<<< HEAD
+        """ """
+=======
         """ testing basemodel with kwargs"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         i = self.value()
         copy = i.to_dict()
         new = BaseModel(**copy)
         self.assertFalse(new is i)
 
     def test_kwargs_int(self):
+<<<<<<< HEAD
+        """ """
+=======
         """ testing with kwargs again but with int kwargs"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         i = self.value()
         copy = i.to_dict()
         copy.update({1: 2})
@@ -59,7 +96,11 @@ class test_basemodel(unittest.TestCase):
             new = BaseModel(**copy)
 
     def test_save(self):
+<<<<<<< HEAD
+        """ Testing save """
+=======
         """ Testing save metthod"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         i = self.value()
         i.save()
         key = self.name + "." + i.id
@@ -68,12 +109,25 @@ class test_basemodel(unittest.TestCase):
             self.assertEqual(j[key], i.to_dict())
 
     def test_str(self):
+<<<<<<< HEAD
+        """ """
+=======
         """ testing the str method of themodel"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         i = self.value()
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
                          i.__dict__))
 
     def test_todict(self):
+<<<<<<< HEAD
+        """ """
+        i = self.value()
+        n = i.to_dict()
+        self.assertEqual(i.to_dict(), n)
+
+    def test_kwargs_none(self):
+        """ """
+=======
         """ testing the to_dict method"""
         i = self.value()
         n = i.to_dict()
@@ -144,11 +198,21 @@ class test_basemodel(unittest.TestCase):
 
     def test_kwargs_none(self):
         """ testing kwargs again with none"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         n = {None: None}
         with self.assertRaises(TypeError):
             new = self.value(**n)
 
     def test_kwargs_one(self):
+<<<<<<< HEAD
+        """ """
+        n = {'Name': 'test'}
+        with self.assertRaises(KeyError):
+            new = self.value(**n)
+
+    def test_id(self):
+        """ """
+=======
         """ testing kwargs with one arg"""
         n = {'name': 'test'}
         new = self.value(**n)
@@ -156,10 +220,21 @@ class test_basemodel(unittest.TestCase):
 
     def test_id(self):
         """ testing id attr of the model"""
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         new = self.value()
         self.assertEqual(type(new.id), str)
 
     def test_created_at(self):
+<<<<<<< HEAD
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.created_at), datetime.datetime)
+
+    def test_updated_at(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.updated_at), datetime.datetime)
+=======
         """ testing created at attr"""
         new = self.value()
         self.assertEqual(type(new.created_at), datetime)
@@ -168,6 +243,7 @@ class test_basemodel(unittest.TestCase):
         """ testing updated at attr"""
         new = self.value()
         self.assertEqual(type(new.updated_at), datetime)
+>>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         n = new.to_dict()
         new = BaseModel(**n)
         self.assertFalse(new.created_at == new.updated_at)
