@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
+
 """ Console Module """
 import cmd
 import sys
@@ -322,12 +322,11 @@ class HBNBCommand(cmd.Cmd):
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
 if __name__ == "__main__":
-=======
+
 """ A program that contains the entry point of the command interpreter """
 
 
 import cmd
-<<<<<<< HEAD
 import shlex
 import models
 from models.base_model import BaseModel
@@ -337,7 +336,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from models.state import State
-=======
 from datetime import datetime
 import models
 from models.amenity import Amenity
@@ -351,21 +349,16 @@ import shlex  # for splitting the line along spaces except in double quotes
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
->>>>>>> aa5b201271d827d4bb071ebc69921fbb7820e01c
 
 
 class HBNBCommand(cmd.Cmd):
     """ HBNH command interpreter console """
     prompt = '(hbnb) '
-
-<<<<<<< HEAD
     prompt = "(hbnb) "
     #storage.reload()
-=======
     def do_EOF(self, arg):
         """Exits console"""
         return True
->>>>>>> aa5b201271d827d4bb071ebc69921fbb7820e01c
 
     def emptyline(self):
         """ overwriting the emptyline method """
@@ -375,7 +368,6 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         return True
 
-<<<<<<< HEAD
     def precmd(self, arg):
         """ Parses input command"""
         if '.' in arg and '(' in arg and ')' in arg:
@@ -414,7 +406,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")       
         elif args not in HBNBCommand.cls_list:
             print("** class doesn't exist **")
-=======
+
     def _key_value_parser(self, args):
         """creates a dictionary from a list of strings"""
         new_dict = {}
@@ -445,7 +437,7 @@ class HBNBCommand(cmd.Cmd):
         if args[0] in classes:
             new_dict = self._key_value_parser(args[1:])
             instance = classes[args[0]](**new_dict)
->>>>>>> aa5b201271d827d4bb071ebc69921fbb7820e01c
+
         else:
             print("** class doesn't exist **")
             return False
@@ -497,7 +489,7 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] in classes:
             obj_dict = models.storage.all(classes[args[0]])
         else:
-<<<<<<< HEAD
+
             all_objs = models.storage.all()
             instances_list = []
             for key, value in all_objs.items():
@@ -505,7 +497,7 @@ class HBNBCommand(cmd.Cmd):
                 if obj_name == args[0]:
                     instances_list += [value.__str__()]
             print(instances_list)
-=======
+
             print("** class doesn't exist **")
             return False
         for key in obj_dict:
@@ -513,7 +505,7 @@ class HBNBCommand(cmd.Cmd):
         print("[", end="")
         print(", ".join(obj_list), end="")
         print("]")
->>>>>>> aa5b201271d827d4bb071ebc69921fbb7820e01c
+
 
     def do_update(self, arg):
         """Update an instance based on the class name, id, attribute & value"""
@@ -619,5 +611,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
->>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
     HBNBCommand().cmdloop()

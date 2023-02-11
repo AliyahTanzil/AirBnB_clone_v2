@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
+
 """This module defines a class to manage file storage for hbnb clone"""
 import json
 
@@ -49,7 +49,7 @@ class FileStorage:
                         self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
-=======
+
 """
 Class that serializes instances/onjects to a JSON file
 and deserializes JSON to instances
@@ -99,4 +99,3 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 for key, value in json.load(f).items():
                     self.new(dct[value['__class__']](**value))
->>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d

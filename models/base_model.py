@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
+
 """This module defines a base class for all models in our hbnb clone"""
 import uuid
 from datetime import datetime
@@ -31,7 +31,7 @@ class BaseModel:
     def save(self):
         """Updates updated_at with current time when instance is changed"""
         from models import storage
-=======
+
 """
 Parent class that defines all common attributes or methords
 for other classes
@@ -70,12 +70,10 @@ class BaseModel:
     def save(self):
         """ Updates last update time
         """
->>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-<<<<<<< HEAD
         """Convert instance into dict format"""
         dictionary = {}
         dictionary.update(self.__dict__)
@@ -84,7 +82,6 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         return dictionary
-=======
         """ Creates a new dictionary, adding a key and returning
             datemtimes converted to strings
         """
@@ -101,4 +98,3 @@ class BaseModel:
         new_dict['__class__'] = self.__class__.__name__
 
         return new_dict
->>>>>>> ef3c7e2619eccc55ae67e961455ac3f0408bf41d
